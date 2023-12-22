@@ -4,32 +4,39 @@
   - A word, phrase, or name formed by rearranging the letters of another, such as spar, formed from rasp.
 */
 
-function isAnagram(str1, str2) {
-  const str1Arr = str1.split("");
-  const str2Arr = str2.split("");
+function isAnagram(one, two) {
+  str1 = one.toUpperCase();
+  str2 = two.toUpperCase();
+  let str1Arr = str1.split("");
+  let str2Arr = str2.split("");
+  let str1Size = str1Arr.length
+  let str2Size = str2Arr.length
+  //console.log(str1Size)
   if (str1Arr.length === str2Arr.length ) {
-    for (let i = 0; i <= str1Arr.length; i++) {
-      for(let j = 0; j <= str2Arr.length; j++ ){
-      if(str1Arr[i] != str2Arr[j]) {
-        // console.log(str1[i] + str2[j])
-        continue;
-      } else if(str1Arr[i] === str2Arr[j]) {
-        str1Arr.pop(str1Arr[i])
-        str2Arr.pop(str2Arr[j])
-        console.log(str1Arr+" "+str2Arr)
-
-      }  else {
-        console.log("Strings are not Anagram")
-      }
+    for (let i = 0; i <= str1Size; i++) {
+        for(let j = 0; j <= str2Size; j++ ){
+              
+              if(str1Arr[i] == str2Arr[j])
+              str2Arr.splice(j, 1)
+              str2Size = str2Arr.length
+          }
+    
     }
+    if(str2Arr.length == 0) { 
+      console.log("yes");
+      return true
+    } else {
+      console.log("no")
+      return false
     }
-    if(str1Arr.length == 0 && str2Arr.length == 0) {
-      console.log("Strings are Anagram");
-    }
+    
   } else {
-    console.log("Strings are Not Anagram");
+                        console.log("no")
+                        return false
   }
 }
 
-isAnagram("help", "pelh")
+isAnagram('he llo', 'helol ')
+
+
 module.exports = isAnagram;
