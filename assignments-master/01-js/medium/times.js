@@ -18,4 +18,4 @@ function calculateTime(n) {
 }
 
 
-console.log("Time taken "+calculateTime(1000000000)+" milliseconds")
+console.log("Time taken "+calculateTime(100000)+" milliseconds")
