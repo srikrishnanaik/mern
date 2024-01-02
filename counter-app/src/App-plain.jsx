@@ -13,10 +13,6 @@ function App() {
       </div>
       
   )
-
-  function customButton(props) {
-    
-  }
 }
 
 export default App

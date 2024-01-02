@@ -16,6 +16,40 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  constructor(){
+    this.result = 0;
+  }
+  add(i) {
+    this.result = (this.result + i);
+  }
+  subtract(i) {
+    this.result = (this.result - i);
+  }
+  multiply(i){
+    this.result = (this.result * i);
+  }
+  divide(i) {
+    if(!i) {
+      throw new Error('Invalid dividend ' + i)
+    }
+    this.result = (this.result/i);
+  }
+  clear() {
+    this.result = 0;
+  }
+  getResult() {
+    return this.result
+  }
+  calculate(str) {
+    this.result = parseFloat(eval(str));
+  }
+}
 
+const calc = new Calculator();
+
+ console.log(calc.calculate(`10/0`))
+// console.log(calc.add(-5))
+//console.log(calc.subtract(5))
+console.log(calc.getResult())
 module.exports = Calculator;
